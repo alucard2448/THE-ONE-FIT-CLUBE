@@ -1,0 +1,308 @@
+.dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background: #1f4068;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        
+        .dropdown-content a:hover {
+            background: #f39c12;
+        }
+        
+        .show {
+            display: block;
+        }
+        
+        .container {
+            padding-top: 120px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+            margin-top: 90px;
+        }
+        
+        .introduccion {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .introduccion h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #f39c12;
+        }
+        
+        .introduccion p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .introduccion a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .introduccion a:hover {
+            text-decoration: underline;
+        }
+        
+      
+        
+        .titulo{
+            text-align: center;
+        }
+
+        #registroForm {
+            display: none;
+        }
+        
+        #timer {
+            display: none;
+            margin-left: auto;
+            margin-right: 60px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #f39c12;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .question-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            
+        }
+
+        .mission-container, .weekly-mission-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            display: none;
+        }
+
+        .mission {
+            margin: 10px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .mission.completed {
+            background: rgba(76, 175, 80, 0.2);
+        }
+
+        #counter {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #f39c12;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .mission button, 
+        .reset-button, 
+        .toggle-button,
+        .question-container button {
+            background: linear-gradient(135deg, #f39c12 0%, #d35400 100%);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #d35400 0%, #b03d00 100%);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission button:disabled {
+            background: linear-gradient(135deg, #7f8c8d 0%, #57606f 100%);
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        /* Nuevos estilos añadidos */
+        #xp-bar {
+            width: 300px;
+            height: 20px;
+            background: #1f4068;
+            border-radius: 10px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            margin-top: 50px;
+        }
+
+        #xp-progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #f39c12, #d35400);
+            transition: width 0.5s ease;
+        }
+
+        #level {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .social-share {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .social-share button {
+            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+            padding: 12px 25px;
+            font-size: 16px;
+        }
+
+        #achievements {
+            max-width: 800px;
+            margin: 30px auto;
+        }
+       @media (max-width: 768px) {
+
+    /* Dropdown más grande y fácil de pulsar */
+    .dropdown-content {
+        min-width: 100%;
+        right: 0;
+        border-radius: 0;
+    }
+
+    .dropdown-content a {
+        padding: 16px 20px;
+        font-size: 16px;
+    }
+
+    /* Ajuste del contenedor principal */
+    .container {
+        padding: 15px;
+        margin-top: 60px;
+    }
+
+    /* Introducción más compacta en móvil */
+    .introduccion {
+        padding: 20px;
+    }
+
+    .introduccion h1 {
+        font-size: 28px;
+    }
+
+    .introduccion p {
+        font-size: 16px;
+    }
+
+    /* Formularios y contenedores */
+    .question-container,
+    .mission-container,
+    .weekly-mission-container {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    /* Misiones: más verticales */
+    .mission {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .mission button {
+        width: 100%;
+    }
+
+    /* Contador */
+    #counter {
+        right: 10px;
+        top: 10px;
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    /* Botones generales */
+    .question-container button,
+    .toggle-button,
+    .reset-button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    /* Barra de XP en móvil */
+    #xp-bar {
+        width: 90%;
+        height: 18px;
+    }
+
+    #level {
+        font-size: 14px;
+    }
+
+    /* Sharing */
+    .social-share button {
+        width: 100%;
+        padding: 14px 0;
+        font-size: 16px;
+    }
+
+    /* Achievements */
+    #achievements {
+        margin: 20px auto;
+        padding: 10px;
+    }
+}

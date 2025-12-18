@@ -1,0 +1,182 @@
+
+
+        .container {
+            padding-top: 120px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+            margin-top: 90px;
+        }
+
+    
+
+        .producto-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(243, 156, 18, 0.1);
+            text-align: center;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .producto-imagen {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .producto-precio {
+            color: #f39c12;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin: 15px 0;
+        }
+
+        .btn-add-to-cart {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn-add-to-cart:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .cart-sidebar {
+            position: fixed;
+            right: 0;
+            top: 80px;
+            width: 350px;
+            height: calc(100vh - 100px);
+            background: #1f4068;
+            padding: 20px;
+            box-shadow: -4px 0 15px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            transform: translateX(100%);
+            transition: transform 0.3s;
+            z-index: 999;
+        }
+
+        .cart-sidebar.active {
+            transform: translateX(0);
+        }
+
+        #cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 10px;
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+        }
+
+        .cart-item div {
+            display: flex;
+            gap: 5px;
+        }
+
+        .cart-item button {
+            background: #f39c12;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .cart-item button:hover {
+            background: #d35400;
+        }
+
+        .cart-total {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 15px 0;
+            padding-top: 15px;
+            border-top: 2px solid #f39c12;
+        }
+
+        .btn-checkout {
+            background: #f39c12;
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .btn-checkout:hover {
+            background: #d35400;
+        }
+
+        .cart-icon {
+    position: fixed;
+    bottom: 13px; /* Para bajarlo aún más */
+    background: #f39c12;
+    padding: 15px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    margin-right: 20%;
+}
+
+
+      
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin-top: 70px;
+            }
+
+            .productos-grid {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+
+            .cart-sidebar {
+                width: 100%;
+                height: calc(100vh - 70px);
+                top: 70px;
+            }
+            
+            .cart-icon {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 18px;
+                
+            }
+        }

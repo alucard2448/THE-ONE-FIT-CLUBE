@@ -1,0 +1,1352 @@
+/* ==============================================
+                    VARIABLES
+   Define colores y valores reutilizables del tema
+=============================================== */
+:root {
+  --primary: #FF6B35;
+  --secondary: #00A8E8;
+  --dark: #0A192F;
+  --accent: #FFD700;
+  --gradient-bg: linear-gradient(135deg, #0A192F 0%, #1A365D 100%);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+}
+
+/* ==============================================
+                    ESTILOS BASE
+   Estilos globales y configuración inicial
+=============================================== */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #1a1a2e 0%, #16213e 100%);
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+p {
+  text-align: center;
+}
+
+/* ==============================================
+                    LAYOUT
+   Estructura principal de la página
+=============================================== */
+/* Header fijo con efecto vidrio */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #1f4068;
+  backdrop-filter: blur(10px);
+  padding: 0.9375rem 0; /* 15px → 0.9375rem */
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 0.25rem 1.875rem rgba(0, 0, 0, 0.1); /* 4px → 0.25rem, 30px → 1.875rem */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  justify-content: space-between;
+}
+
+/* Contenedor principal del contenido */
+.container {
+  padding-top: 7.5rem; /* 120px → 7.5rem */
+  max-width: 90%; /* 1200px → 90% con max-width */
+  margin: 0 auto;
+  flex: 1;
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Footer con efecto vidrio */
+footer {
+  background: #1f4068;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  margin-top: auto;
+}
+
+/* ==============================================
+                    COMPONENTES
+   Estilos para componentes reutilizables
+=============================================== */
+/* Logo animado */
+.logo {
+  height: 3.125rem; /* 50px → 3.125rem */
+  margin-left: 1.875rem; /* 30px → 1.875rem */
+  transition: transform 0.3s;
+  border-radius: 1.25rem; /* 20px → 1.25rem */
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Navegación principal */
+nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-right: 1.875rem; /* Añadido para espaciado responsivo */
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  font-size: 1rem; /* Asegurar tamaño base */
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -0.3125rem; /* 5px → 0.3125rem */
+  left: 0;
+  width: 0;
+  height: 0.125rem; /* 2px → 0.125rem */
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Sección de introducción */
+.introduccion {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.1); /* 8px → 0.5rem, 32px → 2rem */
+  margin: 1rem auto; /* Añadido para espaciado responsivo */
+  width: 90%; /* Añadido para control de ancho */
+  max-width: 100%; /* Asegurar que no exceda el contenedor */
+  box-sizing: border-box;
+}
+
+.introduccion h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsivo con límites */
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Tablas de ejercicios */
+.tabla {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 90%; /* Añadido para control responsivo */
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* Media Queries para mejor responsividad */
+@media (max-width: 768px) {
+  header {
+    padding: 0.75rem 0; /* Reducir padding en móviles */
+  }
+  
+  .container {
+    padding-top: 6rem; /* Reducir padding-top en móviles */
+    padding: 1rem; /* Reducir padding general */
+  }
+  
+  .logo {
+    height: 2.5rem; /* Logo más pequeño en móviles */
+    margin-left: 1rem;
+  }
+  
+  nav {
+    gap: 1rem;
+    margin-right: 1rem;
+  }
+  
+  nav a {
+    padding: 0.375rem 0.75rem; /* Padding más compacto */
+    font-size: 0.9rem;
+  }
+  
+  .introduccion {
+    padding: 1.5rem;
+    width: 95%; /* Más ancho en móviles */
+  }
+  
+  .tabla {
+    padding: 1.5rem;
+    width: 95%; /* Más ancho en móviles */
+  }
+}
+
+@media (max-width: 480px) {
+  .introduccion h1 {
+    font-size: 1.75rem; /* Tamaño fijo mínimo para móviles muy pequeños */
+  }
+  
+  nav {
+    flex-wrap: wrap; /* Permitir wrap en navegación */
+    justify-content: center;
+  }
+}
+.tabla table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.tabla th, .mission button {
+  background: linear-gradient(45deg, 
+    rgba(255, 107, 53, 0.15) 0%, 
+    rgba(255, 215, 0, 0.1) 100%);
+  padding: 1rem;
+  text-align: left;
+}
+
+.tabla td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Misiones diarias */
+.mission-container {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 2rem auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 90%; /* Añadido para control responsivo */
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.mission {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  margin: 1rem 0;
+  transition: transform 0.3s ease;
+}
+
+.mission:hover {
+  transform: translateY(-0.1875rem); /* 3px → 0.1875rem */
+}
+
+/* ==============================================
+                    BOTONES
+   Estilos para diferentes tipos de botones
+=============================================== */
+.login-button, .user-menu-button, .descargar-btn {
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  color: var(--dark);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem; /* Asegurar tamaño base */
+}
+
+.login-button:hover, .user-menu-button:hover, .descargar-btn:hover {
+  transform: translateY(-0.125rem); /* 2px → 0.125rem */
+  box-shadow: 0 0.3125rem 0.9375rem rgba(255, 107, 53, 0.3); /* 5px → 0.3125rem, 15px → 0.9375rem */
+}
+
+/* ==============================================
+                    MODAL
+   Estilos para ventanas modales
+=============================================== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  padding: 1rem; /* Añadido para móviles */
+  box-sizing: border-box;
+}
+
+.modal-content {
+  background: #1f4068;
+  padding: 1.875rem; /* 30px → 1.875rem */
+  border-radius: 0.75rem; /* 12px → 0.75rem */
+  width: 90%; /* 350px → 90% con max-width */
+  max-width: 21.875rem; /* 350px → 21.875rem */
+  text-align: center;
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.3); /* 8px → 0.5rem, 32px → 2rem */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 1rem; /* Añadido para evitar bordes en móviles */
+  box-sizing: border-box;
+}
+
+.modal-content h2 {
+  margin-bottom: 1.25rem; /* 20px → 1.25rem */
+  color: #f39c12;
+  font-size: clamp(1.25rem, 4vw, 1.5rem); /* Responsivo */
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 0.625rem; /* 10px → 0.625rem */
+  margin: 0.625rem 0; /* 10px → 0.625rem */
+  border-radius: 0.5rem; /* 8px → 0.5rem */
+  border: none;
+  font-size: 1rem; /* 16px → 1rem */
+  box-sizing: border-box;
+}
+
+.modal-content button {
+  background: #f39c12;
+  color: white;
+  border: none;
+  padding: 0.625rem 1.25rem; /* 10px → 0.625rem, 20px → 1.25rem */
+  border-radius: 0.5rem; /* 8px → 0.5rem */
+  cursor: pointer;
+  font-size: 1rem; /* 16px → 1rem */
+  transition: background 0.3s;
+  margin-top: 0.625rem; /* 10px → 0.625rem */
+  width: 100%; /* Mejor para móviles */
+  max-width: 12.5rem; /* 200px límite máximo */
+}
+
+/* ==============================================
+                    UTILIDADES
+   Clases auxiliares y pequeños componentes
+=============================================== */
+.titulo {
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap; /* Permitir wrap en móviles */
+}
+
+.social-icons a {
+  width: clamp(2.5rem, 6vw, 2.8125rem); /* 45px → responsive entre 40px-45px */
+  height: clamp(2.5rem, 6vw, 2.8125rem); /* 45px → responsive */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  transform: scale(1.15);
+}
+
+/* Media Queries para la segunda parte */
+@media (max-width: 768px) {
+  .mission-container {
+    padding: 1.5rem;
+    width: 95%; /* Más ancho en móviles */
+    margin: 1rem auto;
+  }
+  
+  .mission {
+    padding: 1rem;
+  }
+  
+  .modal-content {
+    padding: 1.5rem;
+    width: 95%; /* Más ancho en móviles */
+    max-width: 20rem; /* Reducir max-width en móviles */
+  }
+  
+  .modal-content button {
+    max-width: none; /* Botones a ancho completo en móviles */
+  }
+  
+  .social-icons a {
+    width: 2.5rem; /* Reducir tamaño en móviles */
+    height: 2.5rem;
+  }
+  
+  .login-button, .user-menu-button, .descargar-btn {
+    padding: 0.625rem 1.25rem; /* Padding más compacto */
+    font-size: 0.9rem;
+    width: 100%; /* Botones de ancho completo en móviles */
+    max-width: 15rem; /* Con límite máximo */
+    margin: 0.25rem auto; /* Centrado */
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+  
+  .modal-content h2 {
+    font-size: 1.25rem; /* Tamaño fijo para móviles pequeños */
+  }
+  
+  .mission-container {
+    padding: 1rem;
+  }
+  
+  .tabla th, 
+  .tabla td {
+    padding: 0.75rem 0.5rem; /* Padding reducido en tablas para móviles */
+  }
+}
+
+/* Mejoras para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .modal-content {
+    width: 80%;
+    max-width: 25rem;
+  }
+  
+  .mission-container {
+    width: 85%;
+  }
+}
+/* Media Query para tablets y móviles - MEJORADA */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+
+  nav {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 0.75rem; /* Reducir gap en móviles */
+  }
+
+  nav a {
+    padding: 0.375rem 0.75rem; /* Padding más compacto */
+    font-size: 0.9rem;
+  }
+
+  .container {
+    padding: 10rem 1rem 1rem 1rem; /* 160px → 10rem, top right bottom left */
+  }
+
+  .introduccion h1 {
+    font-size: clamp(1.5rem, 6vw, 2rem); /* Mejor responsividad */
+    text-align: center;
+  }
+
+  .tabla {
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1rem 0; /* Mejor espaciado */
+  }
+}
+
+/* Modal - VERSIÓN MEJORADA (evitar duplicados) */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Mejor contraste */
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.modal-content {
+  background: #1f4068;
+  padding: 1.875rem; /* 30px → 1.875rem */
+  border-radius: 0.75rem; /* 12px → 0.75rem */
+  width: 90%;
+  max-width: 21.875rem; /* 350px → 21.875rem */
+  text-align: center;
+  box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.4); /* 6px → 0.375rem, 12px → 0.75rem */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.modal-content h2 {
+  margin-bottom: 1.25rem; /* 20px → 1.25rem */
+  color: #f39c12;
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 0.75rem; /* Mejorado: 0px → 0.75rem para mejor UX */
+  margin: 0.625rem 0; /* 10px → 0.625rem */
+  border-radius: 0.5rem; /* 8px → 0.5rem */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Añadido borde sutil */
+  font-size: 1rem;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.modal-content input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.modal-content button {
+  background: #f39c12;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem; /* 10px20px → 0.75rem1.5rem */
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s;
+  margin-top: 0.625rem;
+  width: 100%;
+  max-width: 12.5rem;
+  font-weight: 600;
+}
+
+.modal-content button:hover {
+  background: #d35400;
+  transform: translateY(-0.125rem);
+}
+
+.close-button {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s;
+  margin-top: 0.625rem;
+  width: 100%;
+  max-width: 12.5rem;
+}
+
+.close-button:hover {
+  background: #cc0000;
+  transform: translateY(-0.125rem);
+}
+
+.titulo {
+  text-align: center;
+}
+
+/* Estilos para el formulario de registro dentro del modal */
+#registroForm {
+  display: none;
+}
+
+/* Botones de login y usuario - UNIFICADOS Y MEJORADOS */
+.login-button, .user-menu-button {
+  background: #f39c12;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem; /* 10px20px → 0.75rem1.5rem */
+  border-radius: 0.5rem; /* 8px → 0.5rem */
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s;
+  margin-left: auto;
+  margin-right: 7%;
+  font-weight: 600;
+  white-space: nowrap; /* Evitar que el texto se rompa */
+}
+
+.login-button:hover, .user-menu-button:hover {
+  background: #d35400;
+  transform: translateY(-0.125rem);
+}
+
+.user-menu {
+  position: relative;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: 7%;
+}
+
+/* Media Queries específicas para botones en header */
+@media (max-width: 1024px) {
+  .login-button, .user-menu-button {
+    margin-right: 5%; /* Reducir margen en tablets */
+    padding: 0.625rem 1.25rem; /* Padding más compacto */
+  }
+}
+
+@media (max-width: 768px) {
+  .login-button, .user-menu-button {
+    margin-right: 1rem; /* Margen consistente con otros elementos */
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    order: 1; /* Mantener botones visibles */
+    margin-top: 0;
+  }
+
+  .user-menu {
+    margin-right: 1rem;
+    order: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-button, .user-menu-button {
+    width: auto; /* Ancho automático en móviles pequeños */
+    min-width: 7rem; /* Ancho mínimo */
+    margin-right: 0.5rem;
+  }
+
+  .modal-content {
+    padding: 1.25rem;
+  }
+
+  .modal-content button,
+  .close-button {
+    max-width: none; /* Botones a ancho completo en móviles muy pequeños */
+  }
+}
+
+/* Estilos para el menú desplegable del usuario */
+.user-menu-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: #1f4068;
+  min-width: 12.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+  border-radius: 0.5rem;
+  z-index: 1002;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-menu-content a {
+  color: white;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  display: block;
+  transition: background 0.3s;
+}
+
+.user-menu-content a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.user-menu:hover .user-menu-content {
+  display: block;
+}
+/* Dropdown - MEJORADO Y UNIFICADO */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: #1f4068;
+  min-width: 10rem; /* 160px → 10rem */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); /* 8px → 0.5rem, 16px → 1rem */
+  z-index: 1002;
+  border-radius: 0.5rem; /* 8px → 0.5rem */
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 0.75rem 1rem; /* 12px → 0.75rem, 16px → 1rem */
+  text-decoration: none;
+  display: block;
+  font-size: 0.875rem; /* 14px → 0.875rem */
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content a:hover {
+  background: #f39c12;
+  transform: translateX(0.25rem);
+}
+
+.show {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-0.5rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Container - VERSIÓN FINAL UNIFICADA */
+.container {
+  padding-top: 7.5rem; /* 120px → 7.5rem */
+  padding: 1.25rem; /* 20px → 1.25rem */
+  max-width: 90%;
+  width: 100%;
+  margin: 5.625rem auto 0 auto; /* 90px → 5.625rem */
+  flex: 1;
+  box-sizing: border-box;
+}
+
+/* Introduccion - VERSIÓN FINAL MEJORADA */
+.introduccion {
+  background: rgba(255, 255, 255, 0.1);
+  padding: clamp(1.5rem, 4vw, 1.875rem); /* 30px → responsive 24-30px */
+  border-radius: 0.75rem; /* 12px → 0.75rem */
+  box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.4); /* 6px → 0.375rem, 12px → 0.75rem */
+  margin: 1rem auto;
+  width: 90%;
+  max-width: 100%;
+  box-sizing: border-box;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.introduccion h1 {
+  font-size: clamp(1.75rem, 5vw, 2.25rem); /* 36px → responsive 28-36px */
+  margin-bottom: 1.25rem; /* 20px → 1.25rem */
+  color: #f39c12;
+  text-align: center;
+  background: linear-gradient(45deg, #f39c12, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.introduccion p {
+  font-size: clamp(1rem, 2.5vw, 1.125rem); /* 18px → responsive 16-18px */
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.introduccion a {
+  color: #f39c12;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.introduccion a:hover {
+  text-decoration: underline;
+  color: #ffd700;
+}
+
+/* Modal - VERSIÓN FINAL (eliminar duplicados) */
+/* NOTA: Los estilos de modal ya fueron definidos en partes anteriores */
+/* Evitar duplicar estos estilos */
+
+/* Media Queries específicas para la cuarta parte */
+@media (max-width: 768px) {
+  .container {
+    padding-top: 6rem;
+    padding: 1rem;
+    margin-top: 4.5rem; /* Reducir margen superior en móviles */
+  }
+  
+  .dropdown-content {
+    min-width: 8rem; /* Más estrecho en móviles */
+    right: -1rem; /* Ajustar posición */
+  }
+  
+  .dropdown-content a {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .introduccion {
+    padding: 1.25rem;
+    width: 95%;
+  }
+  
+  .introduccion h1 {
+    font-size: 1.5rem; /* Tamaño fijo para móviles */
+  }
+  
+  .introduccion p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin-top: 3.75rem;
+    padding: 0.75rem;
+  }
+  
+  .dropdown-content {
+    min-width: 7rem;
+    right: -0.5rem;
+  }
+  
+  .introduccion {
+    padding: 1rem;
+    margin: 0.5rem auto;
+  }
+  
+  .introduccion h1 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Estilos para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    max-width: 95%;
+    margin-top: 6rem;
+  }
+  
+  .introduccion {
+    width: 85%;
+  }
+}
+
+/* Utilidades para mejorar la experiencia táctil en móviles */
+@media (hover: none) {
+  .dropdown-content a:hover {
+    transform: none; /* Deshabilitar transform en dispositivos táctiles */
+    background: rgba(243, 156, 18, 0.8);
+  }
+  
+  .introduccion a:hover {
+    text-decoration: none; /* Mejor legibilidad en táctiles */
+    color: #f39c12;
+  }
+}
+/* Botones del modal - VERSIÓN FINAL UNIFICADA */
+/* NOTA: Estos estilos ya fueron definidos en partes anteriores, evitar duplicar */
+
+.modal-content button {
+  background: #f39c12;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem; /* 10px20px → 0.75rem1.5rem */
+  border-radius: 0.5rem; /* 8px → 0.5rem */
+  cursor: pointer;
+  font-size: 1rem; /* 16px → 1rem */
+  transition: all 0.3s ease;
+  margin-top: 0.625rem; /* 10px → 0.625rem */
+  width: 100%;
+  max-width: 12.5rem;
+  font-weight: 600;
+}
+
+.modal-content button:hover {
+  background: #d35400;
+  transform: translateY(-0.125rem);
+}
+
+.close-button {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-top: 0.625rem;
+  width: 100%;
+  max-width: 12.5rem;
+}
+
+.close-button:hover {
+  background: #cc0000;
+  transform: translateY(-0.125rem);
+}
+
+.titulo {
+  text-align: center;
+}
+
+/* Formulario de registro */
+#registroForm {
+  display: none;
+}
+
+/* Container - VERSIÓN FINAL OPTIMIZADA */
+.container {
+  padding-top: 7.5rem; /* 120px → 7.5rem */
+  max-width: 90%;
+  margin: 6% auto 0 auto; /* Mantener % para flexibilidad */
+  flex: 1;
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Grid de productos - COMPLETAMENTE RESPONSIVE */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); /* Responsive automático */
+  gap: clamp(1rem, 3vw, 2rem); /* 2rem → responsive 1-2rem */
+  padding: clamp(1rem, 3vw, 2rem); /* 2rem → responsive 1-2rem */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.producto-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem); /* 1.5rem → responsive 1-1.5rem */
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Asegurar altura consistente */
+  box-sizing: border-box;
+}
+
+.producto-card:hover {
+  transform: translateY(-0.3125rem); /* 5px → 0.3125rem */
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+.producto-imagen {
+  width: 100%;
+  height: clamp(10rem, 25vw, 12.5rem); /* 200px → responsive 160-200px */
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.producto-precio {
+  color: var(--accent);
+  font-size: clamp(1.1rem, 2.5vw, 1.2rem); /* 1.2rem → responsive 1.1-1.2rem */
+  margin: 1rem 0;
+  font-weight: 600;
+}
+
+.btn-add-to-cart {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1rem, 3vw, 1.5rem); /* Responsive padding */
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: clamp(0.9rem, 2vw, 1rem); /* Texto responsive */
+  font-weight: 600;
+  width: 100%;
+  margin-top: auto; /* Empujar hacia abajo en cards flex */
+}
+
+.btn-add-to-cart:hover {
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.25rem 0.75rem rgba(255, 107, 53, 0.4);
+}
+
+/* Media Queries específicas para productos */
+@media (max-width: 1200px) {
+  .productos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-top: 8%; /* Más margen en móviles */
+    padding: 1rem;
+  }
+  
+  .productos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .producto-card {
+    padding: 1rem;
+  }
+  
+  .producto-imagen {
+    height: 9rem; /* Altura fija en móviles para consistencia */
+  }
+  
+  .btn-add-to-cart {
+    padding: 0.75rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin-top: 10%; /* Aún más margen en móviles pequeños */
+    padding: 0.75rem;
+  }
+  
+  .productos-grid {
+    grid-template-columns: 1fr; /* Una columna en móviles muy pequeños */
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+  
+  .producto-card {
+    padding: 0.75rem;
+  }
+  
+  .producto-imagen {
+    height: 8rem;
+  }
+  
+  .producto-precio {
+    font-size: 1rem;
+    margin: 0.75rem 0;
+  }
+}
+
+/* Mejoras para tablets en orientación horizontal */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .productos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  }
+}
+
+/* Utilidades para mejorar grid en diferentes aspect ratios */
+@media (max-width: 600px) and (orientation: portrait) {
+  .productos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  }
+}
+
+/* Soporte para dispositivos con hover y sin hover */
+@media (hover: none) {
+  .producto-card:hover {
+    transform: none; /* Deshabilitar transform en táctiles */
+  }
+  
+  .btn-add-to-cart:hover {
+    transform: none;
+  }
+  
+  .producto-card:active {
+    transform: scale(0.98); /* Feedback táctil alternativo */
+  }
+}
+/* Efectos hover para botones - VERSIÓN MEJORADA */
+.btn-add-to-cart:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+  box-shadow: 0 0.5rem 1.5rem rgba(255, 107, 53, 0.4);
+}
+
+/* Icono del carrito - COMPLETAMENTE RESPONSIVE */
+.cart-icon {
+  position: fixed;
+  bottom: clamp(1rem, 4vw, 2rem); /* 2rem → responsive 1-2rem */
+  right: clamp(1rem, 4vw, 2rem); /* 2rem → responsive 1-2rem */
+  background: var(--primary);
+  padding: clamp(0.75rem, 2.5vw, 1rem); /* 1rem → responsive 0.75-1rem */
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.2); /* 4px → 0.25rem, 15px → 0.9375rem */
+  z-index: 1000;
+  transition: all 0.3s ease;
+  width: clamp(3rem, 8vw, 4rem); /* Tamaño responsive */
+  height: clamp(3rem, 8vw, 4rem); /* Tamaño responsive */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
+  background: var(--secondary);
+}
+
+/* Sidebar del carrito - MEJORADO */
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: clamp(18.75rem, 90vw, 21.875rem); /* 350px → responsive 300-350px */
+  height: 100vh;
+  background: var(--dark);
+  padding: clamp(1rem, 3vw, 2rem); /* 2rem → responsive 1-2rem */
+  transition: right 0.3s ease;
+  overflow-y: auto;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1001;
+  box-sizing: border-box;
+}
+
+.cart-sidebar.active {
+  right: 0;
+}
+
+/* Items del carrito */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cart-item-info {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.cart-item-name {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.cart-item-price {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.cart-item-quantity {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.quantity-btn:hover {
+  background: var(--primary);
+}
+
+/* Total y checkout */
+.cart-total {
+  text-align: right;
+  font-size: clamp(1.1rem, 3vw, 1.2rem); /* 1.2rem → responsive 1.1-1.2rem */
+  margin-top: 2rem;
+  color: var(--accent);
+  font-weight: 600;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-checkout {
+  width: 100%;
+  padding: clamp(0.8rem, 2.5vw, 1rem); /* 1rem → responsive 0.8-1rem */
+  background: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-checkout:hover {
+  background: #0091c7;
+  transform: translateY(-0.125rem);
+}
+
+/* Overlay para el carrito */
+.cart-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.cart-overlay.active {
+  display: block;
+}
+
+/* Media Queries específicas para el carrito */
+@media (max-width: 1024px) {
+  .cart-sidebar {
+    width: clamp(16rem, 85vw, 20rem); /* Más estrecho en tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-sidebar {
+    width: 100%;
+    right: -100%;
+    padding: 1.5rem;
+  }
+  
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .cart-item-info {
+    margin-right: 0;
+    width: 100%;
+  }
+  
+  .cart-item-quantity {
+    align-self: flex-end;
+  }
+  
+  .cart-icon {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-sidebar {
+    padding: 1rem;
+  }
+  
+  .cart-item {
+    padding: 0.75rem;
+    margin: 0.75rem 0;
+  }
+  
+  .cart-total {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .cart-icon {
+    bottom: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .btn-checkout {
+    padding: 0.9rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Media Queries para grid de productos (consolidación) */
+@media (max-width: 1024px) {
+  .productos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .productos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .productos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Soporte para dispositivos táctiles */
+@media (hover: none) {
+  .btn-add-to-cart:hover {
+    transform: none;
+    opacity: 1;
+  }
+  
+  .cart-icon:hover {
+    transform: none;
+  }
+  
+  .btn-checkout:hover {
+    transform: none;
+  }
+  
+  .cart-icon:active,
+  .btn-add-to-cart:active,
+  .btn-checkout:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Animaciones mejoradas */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.cart-item {
+  animation: slideIn 0.3s ease;
+}
+
+/* Scrollbar personalizado para el sidebar */
+.cart-sidebar::-webkit-scrollbar {
+  width: 0.375rem;
+}
+
+.cart-sidebar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.cart-sidebar::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 0.1875rem;
+}
+
+.cart-sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}

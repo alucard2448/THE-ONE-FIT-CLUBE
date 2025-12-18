@@ -1,0 +1,298 @@
+  /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tabla {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        /* Estilos del timer */
+        #timer {
+            margin-left: auto;
+            margin-right: 60px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #f39c12;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+       
+
+       
+                
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background: #1f4068;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        
+        .dropdown-content a:hover {
+            background: #f39c12;
+        }
+        
+        .show {
+            display: block;
+        }
+        
+        .container {
+            padding-top: 120px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+            margin-top: 90px;
+        }
+        
+        .introduccion {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .introduccion h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #f39c12;
+        }
+        
+        .introduccion p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .introduccion a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .introduccion a:hover {
+            text-decoration: underline;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+        
+        .modal-content {
+            background: #1f4068;
+            padding: 30px;
+            border-radius: 12px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .modal-content h2 {
+            margin-bottom: 20px;
+            color: #f39c12;
+        }
+        
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+        
+        .modal-content button {
+            background: #f39c12;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+            margin-top: 10px;
+           ;
+        }
+        
+        .modal-content button:hover {
+            background: #d35400;
+        }
+        
+        .close-button {
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        
+        .close-button:hover {
+            background: #cc0000;
+        }
+        
+       
+        .titulo{
+            text-align: center;
+        }
+
+        /* Estilos para el formulario de registro dentro del modal */
+        #registroForm {
+            display: none; /* Oculto por defecto */
+        }
+        .hero-image {
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .introduccion h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .introduccion p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Nuevas Secciones --- */
+        .beneficios {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .beneficio-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .beneficio-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .beneficio-icon {
+            font-size: 2.5rem;
+            color: #f39c12;
+            margin-bottom: 1rem;
+        }
+
+        /* --- Mejoras en el Footer --- */
+        footer {
+            background: #1f4068;
+            padding: 40px 20px;
+            margin-top: 80px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .social-icons svg {
+            transition: transform 0.3s;
+        }
+
+        .social-icons svg:hover {
+            transform: scale(1.2);
+        }
+
+        /* --- Mejoras en Botones --- */
+        .cta-button {
+    display: inline-block;
+    background: #f39c12;
+    color: white !important; /* Texto en blanco */
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.cta-button:hover {
+    background: transparent;
+    border-color: #f39c12;
+    color: #f39c12 !important; /* Mantenemos el naranja en hover */
+}
+       /* Ajustes para la imagen de María */
+.testimonio-imagen.maria {
+    width: 200px; /* Tamaño específico */
+    height: 200px; /* Mantener relación cuadrada */
+    object-fit: cover; /* Asegura que la imagen se recorte adecuadamente */
+    border-radius: 50%; /* Forma circular */
+    margin: 0 auto 20px; /* Centrado y espacio inferior */
+    display: block; /* Necesario para el margen auto */
+    border: 3px solid #f39c12; /* Borde decorativo */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Sombra suave */
+    transition: all 0.3s ease; /* Transición para efectos hover */
+}
+
+.testimonio-imagen.maria:hover {
+    transform: scale(1.05); /* Efecto hover suave */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3); /* Sombra más pronunciada */
+}
+a{
+    color: #f39c12;
+}
+        /* --- Mejoras en el Hero Section --- */
+.container {
+    margin-top: 120px;
+    padding: 40px 20px;
+ }
+.hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 60px;
+ }
+@media(max-width: 768px){
+    .beneficios{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #foto{
+        display: none;
+    }
+}
