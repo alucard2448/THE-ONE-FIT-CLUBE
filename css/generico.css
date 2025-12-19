@@ -122,6 +122,8 @@ nav a:hover::after {
   nav {
     gap: 1rem;
     margin-right: 1rem;
+    flex-wrap: wrap; /* Permitir wrap en navegación */
+    justify-content: center;
   }
   
   nav a {
@@ -246,4 +248,5 @@ nav a:hover::after {
   background: linear-gradient(45deg, var(--primary), var(--accent));
   transform: scale(1.15);
 }
+
 
